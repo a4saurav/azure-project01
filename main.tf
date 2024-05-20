@@ -15,6 +15,15 @@ provider "azurerm" {
   features {}
 }
 
+terraform {
+  backend "azurerm" {
+    resource_group_name = "example-resources"
+    storage_account_name = "storage587455"
+    container_name = "tfstate"
+    key = "terraform.tfstate"
+    
+  }
+}
 
 
 resource "azurerm_resource_group" "example" {
